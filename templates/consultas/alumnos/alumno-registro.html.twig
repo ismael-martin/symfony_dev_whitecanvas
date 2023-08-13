@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Registro de alumnos{% endblock %}
+
+{% block body %}
+
+
+<div class="container-md pt-3">
+    <h1>{{ controller_name }}</h1>
+    <hr>
+    
+    {{ form_start(formulario) }}
+    <div class="row">
+        <div class="col-lg-6 p-3">
+            <div class="m-1">
+                {{form_label(formulario.nombre, 'Nombre',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.nombre) }}
+                <small>{{form_help(formulario.nombre)}}</small>
+                <div class="form-error">{{ form_errors(formulario.nombre)}}</div>
+            </div>
+            <div class="m-1">
+                {{form_label(formulario.apellidos, 'Apellidos',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.apellidos) }}
+                <small>{{form_help(formulario.apellidos)}}</small>
+                <div class="form-error">{{ form_errors(formulario.apellidos)}}</div>
+            </div>
+            <div class="m-1">
+                {{form_label(formulario.email, 'Email',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.email) }}
+                <small>{{form_help(formulario.email)}}</small>
+                <div class="form-error">{{ form_errors(formulario.email)}}</div>
+            </div>
+            <div class="m-1">
+                {{form_label(formulario.telefono, 'Teléfono',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.telefono) }}
+                <small>{{form_help(formulario.telefono)}}</small>
+                <div class="form-error">{{ form_errors(formulario.telefono)}}</div>
+            </div>
+            <div class="m-1">
+                {{form_label(formulario.ident, 'DNI/NIE/NIF/Pasaporte',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.ident) }}
+                <small>{{form_help(formulario.ident)}}</small>
+                <div class="form-error">{{ form_errors(formulario.ident)}}</div>
+            </div>
+            
+
+        </div>
+        <div class="col-lg-6 p-3">
+            <div class="m-1">
+                {{form_label(formulario.fnacimiento, 'Fecha de nacimiento',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.fnacimiento) }}
+                <small>{{form_help(formulario.fnacimiento)}}</small>
+                <div class="form-error">{{ form_errors(formulario.fnacimiento)}}</div>
+            </div>
+            <div class="m-1">
+                {{form_label(formulario.direccion, 'Dirección',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.direccion) }}
+                <small>{{form_help(formulario.direccion)}}</small>
+                <div class="form-error">{{ form_errors(formulario.direccion)}}</div>
+            </div>
+            <div class="m-1">
+                {{form_label(formulario.localidad, 'Localidad',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.localidad) }}
+                <small>{{form_help(formulario.localidad)}}</small>
+                <div class="form-error">{{ form_errors(formulario.localidad)}}</div>
+            </div>
+            <div class="m-1">
+                {{form_label(formulario.provincia, 'Provincia/Estado',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.provincia) }}
+                <small>{{form_help(formulario.provincia)}}</small>
+                <div class="form-error">{{ form_errors(formulario.provincia)}}</div>
+            </div>
+            <div class="m-1">
+                {{form_label(formulario.pais, 'Pais',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.pais) }}
+                <small>{{form_help(formulario.pais)}}</small>
+                <div class="form-error">{{ form_errors(formulario.pais)}}</div>
+            </div>
+            
+        </div>
+        <div class="col-md-12 p-3 m-1">
+            {{ form_row(formulario._token) }}
+            {{ form_widget(formulario.Guardar, {'attr':{'class':'btn btn-success btn-block'}}) }}
+            <a class="btn btn-danger btn-block" href="{{ path('alumnos') }}">Cancelar</a>
+        </div>
+    </div>
+    {{ form_end(formulario, {render_rest: false}) }}
+</div>
+{% endblock %}

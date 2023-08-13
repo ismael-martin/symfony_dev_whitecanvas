@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Jornadas del usuario {{usuario.nombre}} {{usuario.apellidos}}{% endblock %}
+
+{% block body %}
+
+
+<div class="container-md pt-3">
+    <h1>{{ controller_name }}</h1>
+    <hr>
+    <div class="btn-group pb-2">
+      <a class="btn btn-primary btn-block" href="{{ path('usuarios') }}">Lista de usuarios</a>
+      <!--<a class="btn btn-secondary btn-block" href="">Botón</a>
+      <a class="btn btn-secondary btn-block" href="">Botón</a>-->
+    </div>
+    <div class="table-responsive-lg">
+        <input class="form-control pb-2" id="busqueda" type="text" placeholder="Buscar...">
+        <table id="tablaDinamica" class="table table-striped table-hover table-sm">
+            <thead class="table-dark">
+              <tr>
+                <th>Tipo</th>
+                <th>Hora</th>
+                <th>Geo</th>
+              </tr>
+            </thead>
+            <tbody id="tabla">
+                {% for jornada in jornadas %}
+                    <tr>
+                        <td>{% if jornada.tipo == 0%}SALIDA{% else %}ENTRADA{% endif %}</td>
+                        <td>{{jornada.hora|format_datetime('medium', 'short', locale='es')}}</td>
+                        <td>{% if jornada.latitud|trim is not empty %}<a href="https://www.google.com/maps/search/?api=1&query={{jornada.latitud}},{{jornada.longitud}}" target="_blank"><i class="fas fa-map-marked-alt"></i></a>{% endif %}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#tablaDinamica').DataTable();
+        $('.dataTables_length').addClass('bs-select');
+    });
+</script>
+{% endblock %}

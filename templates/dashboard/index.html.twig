@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Inicio{% endblock %}
+
+{% block body %}
+<!-- <style type="text/css">
+    .reloj { width: 150px; height: 30px; padding: 5px 10px; border: 1px solid black; 
+         font: bold 1.5em dotum, "lucida sans", arial; 
+         text-align: center;
+         float: right; margin: 1em 3em 1em 1em; }
+
+</style> -->
+
+<div class="container-md pt-3">
+    <h1>{{ controller_name }}</h1>
+    <hr>
+    <div class="row pb-2">
+        
+        <div class="col">
+            <div class="card mb-2">
+                
+                <div class="card-header">Alumnos</div>
+                <div class="card-body">Some example text some example text. John Doe is an architect and engineer</div>
+                <div class="card-footer"><a href="{{ path('alumnos') }}" class="btn btn-primary">Acceder a Alumnos</a></div>
+                
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-2">
+                
+                <div class="card-header">Usuarios</div>
+                <div class="card-body">Some example text some example text. John Doe is an architect and engineer</div>
+                <div class="card-footer"><a href="{{ path('usuarios') }}" class="btn btn-primary">Acceder a usuarios</a></div>
+                
+            </div>
+
+            <div class="card mb-2">
+                
+                <div class="card-header">Departamentos</div>
+                <div class="card-body">Some example text some example text. John Doe is an architect and engineer</div>
+                <div class="card-footer"><a href="{{ path('departamentos') }}" class="btn btn-primary">Acceder a departamentos</a></div>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Registro de departamento{% endblock %}
+
+{% block body %}
+
+
+<div class="container-md pt-3">
+    <h1>{{ controller_name }}</h1>
+    <hr>
+    
+    {{ form_start(formulario) }}
+    <div class="row">
+        <div class="col-lg-6 p-3">
+            <div class="m-1">
+                {{form_label(formulario.nombre, 'Nombre del departamento',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.nombre) }}
+                <small>{{form_help(formulario.nombre)}}</small>
+                <div class="form-error">{{ form_errors(formulario.nombre)}}</div>
+            </div>
+
+            <div class="m-1">
+                {{form_label(formulario.descripcion, 'Descripción del departamento',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.descripcion) }}
+                <small>{{form_help(formulario.descripcion)}}</small>
+                <div class="form-error">{{ form_errors(formulario.descripcion)}}</div>
+            </div>
+            
+            
+
+        </div>
+        <div class="col-lg-6 p-3">
+            <div class="m-1">
+                {{form_label(formulario.usuarios, '',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.usuarios) }}
+                <small>{{form_help(formulario.usuarios)}}</small>
+                <div class="form-error">{{ form_errors(formulario.usuarios)}}</div>
+            </div>
+            
+            
+        </div>
+        <div class="col-md-12 p-3 m-1">
+            {{ form_row(formulario._token) }}
+            {{ form_widget(formulario.Guardar, {'attr':{'class':'btn btn-success btn-block'}}) }}
+            <a class="btn btn-danger btn-block" href="{{ path('departamentos') }}">Cancelar</a>
+        </div>
+    </div>
+    {{ form_end(formulario, {render_rest: false}) }}
+</div>
+{% endblock %}

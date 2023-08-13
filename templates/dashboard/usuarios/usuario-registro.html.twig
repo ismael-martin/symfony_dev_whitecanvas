@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Registro de usuarios{% endblock %}
+
+{% block body %}
+
+
+<div class="container-md pt-3">
+    <h1>{{ controller_name }}</h1>
+    <hr>
+    
+    {{ form_start(formulario) }}
+    <div class="row">
+        <div class="col-lg-6 p-3">
+            <div class="m-1">
+                {{form_label(formulario.nombre, 'Nombre',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.nombre) }}
+                <small>{{form_help(formulario.nombre)}}</small>
+                <div class="form-error">{{ form_errors(formulario.nombre)}}</div>
+            </div>
+            <div class="m-1">
+                {{form_label(formulario.apellidos, 'Apellidos',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.apellidos) }}
+                <small>{{form_help(formulario.apellidos)}}</small>
+                <div class="form-error">{{ form_errors(formulario.apellidos)}}</div>
+            </div>
+            <div class="m-1">
+                {{form_label(formulario.email, 'Email',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.email) }}
+                <small>{{form_help(formulario.email)}}</small>
+                <div class="form-error">{{ form_errors(formulario.email)}}</div>
+            </div>
+            <div class="m-1">
+                {{form_label(formulario.password, 'Contraseña',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.password) }}
+                <small>{{form_help(formulario.password)}}</small>
+                <div class="form-error">{{ form_errors(formulario.password)}}</div>
+            </div>
+            
+
+        </div>
+        <div class="col-lg-6 p-3">
+            <div class="m-1">
+                {{form_label(formulario.roles, 'Rol de usuario',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.roles) }}
+                <small>{{form_help(formulario.roles)}}</small>
+                <div class="form-error">{{ form_errors(formulario.roles)}}</div>
+            </div>
+            
+        </div>
+        <div class="col-md-12 p-3 m-1">
+            {{ form_row(formulario._token) }}
+            {{ form_widget(formulario.Guardar, {'attr':{'class':'btn btn-success btn-block'}}) }}
+            <a class="btn btn-danger btn-block" href="{{ path('usuarios') }}">Cancelar</a>
+        </div>
+    </div>
+    {{ form_end(formulario, {render_rest: false}) }}
+</div>
+{% endblock %}

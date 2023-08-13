@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Editar usuario{% endblock %}
+
+{% block body %}
+
+
+<div class="container-md pt-3">
+    <h1>{{ controller_name }}</h1>
+    <hr>
+    <div class="btn-group pb-2">
+      <a class="btn btn-secondary btn-block" href="{{ path('usuarios') }}">Usuarios</a>
+    </div>
+    {{ form_start(formulario) }}
+    <div class="row">
+        <div class="col-lg-6 p-3">
+            <div class="m-1">
+                {{form_label(formulario.nombre, 'Nombre',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.nombre) }}
+                <small>{{form_help(formulario.nombre)}}</small>
+                <div class="form-error">{{ form_errors(formulario.nombre)}}</div>
+            </div>
+
+            <div class="m-1">
+                {{form_label(formulario.apellidos, 'Apellidos',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.apellidos) }}
+                <small>{{form_help(formulario.apellidos)}}</small>
+                <div class="form-error">{{ form_errors(formulario.apellidos)}}</div>
+            </div>
+
+            <div class="m-1">
+                {{form_label(formulario.email, 'Email',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.email) }}
+                <small>{{form_help(formulario.email)}}</small>
+                <div class="form-error">{{ form_errors(formulario.email)}}</div>
+            </div>
+
+            <div class="m-1">
+                {{form_label(formulario.password, 'Contraseña',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.password) }}
+                <small>{{form_help(formulario.password)}}</small>
+                <div class="form-error">{{ form_errors(formulario.password)}}</div>
+            </div>
+            
+            <div class="m-1">
+                {{form_label(formulario.telefono, 'Teléfono',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.telefono) }}
+                <small>{{form_help(formulario.telefono)}}</small>
+                <div class="form-error">{{ form_errors(formulario.telefono)}}</div>
+            </div>
+
+            <div class="m-1">
+                {{form_label(formulario.dni, 'DNI',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.dni) }}
+                <small>{{form_help(formulario.dni)}}</small>
+                <div class="form-error">{{ form_errors(formulario.dni)}}</div>
+            </div>
+            
+            <div class="m-1">
+                {{form_label(formulario.roles, 'Rol de usuario',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.roles) }}
+                <small>{{form_help(formulario.roles)}}</small>
+                <div class="form-error">{{ form_errors(formulario.roles)}}</div>
+            </div>
+
+            <div class="m-1">
+                {{ form_widget(formulario.bloqueado) }}
+                {{form_label(formulario.bloqueado, 'Usuario bloqueado',{'label_attr': {'class':'form-label'}})}}
+                <small>{{form_help(formulario.bloqueado)}}</small>
+                <div class="form-error">{{ form_errors(formulario.bloqueado)}}</div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 p-3">
+
+
+            <div class="m-1">
+                {{form_label(formulario.fnacimiento, 'Fecha de nacimiento',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.fnacimiento) }}
+                <small>{{form_help(formulario.fnacimiento)}}</small>
+                <div class="form-error">{{ form_errors(formulario.fnacimiento)}}</div>
+            </div>
+
+            <div class="m-1">
+                {{form_label(formulario.lnacimiento, 'Lugar de Nacimiento',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.lnacimiento) }}
+                <small>{{form_help(formulario.lnacimiento)}}</small>
+                <div class="form-error">{{ form_errors(formulario.lnacimiento)}}</div>
+            </div>
+
+            <div class="m-1">
+                {{form_label(formulario.sexo, 'Sexo',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.sexo) }}
+                <small>{{form_help(formulario.sexo)}}</small>
+                <div class="form-error">{{ form_errors(formulario.sexo)}}</div>
+            </div>
+
+            <div class="m-1">
+                {{form_label(formulario.nacionalidad, 'Nacionalidad',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.nacionalidad) }}
+                <small>{{form_help(formulario.nacionalidad)}}</small>
+                <div class="form-error">{{ form_errors(formulario.nacionalidad)}}</div>
+            </div>
+
+            <div class="m-1">
+                {{form_label(formulario.estCivil, 'Estado Civil',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.estCivil) }}
+                <small>{{form_help(formulario.estCivil)}}</small>
+                <div class="form-error">{{ form_errors(formulario.estCivil)}}</div>
+            </div>
+
+            <div class="m-1">
+                {{form_label(formulario.permConducir, 'Permiso de Conducir',{'label_attr': {'class':'form-label'}})}}<br>
+                {{ form_widget(formulario.permConducir) }}
+                <small>{{form_help(formulario.permConducir)}}</small>
+                <div class="form-error">{{ form_errors(formulario.permConducir)}}</div>
+            </div>
+
+            <div class="m-1">
+                {{ form_widget(formulario.vehiProp) }}
+                {{form_label(formulario.vehiProp, 'Vehículo Própio',{'label_attr': {'class':'form-label'}})}}
+                <small>{{form_help(formulario.vehiProp)}}</small>
+                <div class="form-error">{{ form_errors(formulario.vehiProp)}}</div>
+            </div>
+
+            <div class="m-1">
+                {{ form_widget(formulario.vehiEmp) }}
+                {{form_label(formulario.vehiEmp, 'Vehículo Empresa',{'label_attr': {'class':'form-label'}})}}
+                <small>{{form_help(formulario.vehiEmp)}}</small>
+                <div class="form-error">{{ form_errors(formulario.vehiEmp)}}</div>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-12 p-3 m-1">
+            {{ form_row(formulario._token) }}
+            {{ form_widget(formulario.Guardar, {'attr':{'class':'btn btn-success btn-block'}}) }}
+            {{ form_rest(formulario) }}
+            <a class="btn btn-danger btn-block" href="{{ path('usuarios') }}">Cancelar</a>
+        </div>
+
+
+    </div>
+    <!--{{ form_end(formulario, {render_rest: false}) }}-->
+    {{ form_end(formulario) }}
+</div>
+{% endblock %}

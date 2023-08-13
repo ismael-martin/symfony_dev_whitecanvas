@@ -1,0 +1,44 @@
+<div id="reloj" class="reloj" style="font-size: x-large;text-align: center;">
+    00 : 00 : 00
+</div>
+{{ form_start(formulario) }}
+<div class="m-1">
+    {{form_label(formulario.observaciones, 'Observaciones',{'label_attr': {'class':'form-label'}})}}<br>
+    {{ form_widget(formulario.observaciones) }}
+    <small>{{form_help(formulario.observaciones)}}</small>
+    <div class="form-error">{{ form_errors(formulario.observaciones)}}</div>
+</div>
+<div class="m-1">
+    {{ form_row(formulario._token) }}
+    {% if (user.jornada|length) % 2 == 0  %}
+        
+        {{ form_widget(formulario.Guardar, {'attr':{'class':'btn btn-success btn-block'}, 'label':'Registrar entrada'}) }}
+    {% else %}
+        
+        {{ form_widget(formulario.Guardar, {'attr':{'class':'btn btn-danger btn-block'}, 'label':'Registrar salida'}) }}
+    {% endif %}
+    {{ form_widget(formulario.latitud,{'attr': {'value': '', 'name':'latitud', 'id':'jornada_latitud'}}) }}
+    {{ form_widget(formulario.longitud,{'attr': {'value': '', 'name':'longitud', 'id':'jornada_longitud'}}) }}
+    <br>
+    {% if user.jornada|length > 0 %}
+        ULTIMO REGISTRO: 
+        {% for registro in user.jornada%}
+            {% if loop.last %}
+                <b>{% if registro.tipo == 0%}
+                    <i class="fas fa-sign-out-alt"></i> SALIDA 
+                {% else %}
+                    <i class="fas fa-sign-in-alt"></i> ENTRADA 
+                {% endif %}</b>
+                 el {{registro.hora|format_datetime('medium', 'short', locale='es')}}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
+
+            
+<!--<div class="col-lg-8 p-3">
+    {{user.jornada|length}}
+    <button id="find_btn">Find Me</button>
+    <div id="result"></div> 
+</div>-->
+{{ form_end(formulario) }}
