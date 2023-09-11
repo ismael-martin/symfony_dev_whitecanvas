@@ -1,4 +1,7 @@
-# symfony-dev-eobs
-Unfinished web application made with symfony 5.4 (no need so disconinued)
+# symfony-dev-whitecanvas
 
-This web application could be used as a white canvas to develop any kind of project
+I use this web application built with symfony 5.4 as a white canvas to start developing new projects.
+
+Includes some basic user management and permissions functionality.
+
+Feel free to have a look.
